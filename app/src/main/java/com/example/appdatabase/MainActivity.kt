@@ -33,9 +33,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.appdatabase.ui.theme.AppDatabaseTheme
 
 
@@ -59,67 +62,85 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
+    var nome by remember{
+        mutableStateOf("")
+    }
+    var telefone by remember {
+        mutableStateOf("")
+    }
     Column(
         Modifier
             .background(Color.White)
-            .fillMaxWidth()
-            .padding(8.dp),
-        Arrangement.Center
     ) {
         Row(
             Modifier
                 .padding(20.dp)
-                .fillMaxWidth(),
-            Arrangement.Center
         ) {
         }
         Row(
             Modifier
-                .padding(8.dp)
                 .fillMaxWidth(),
             Arrangement.Center
         ) {
-            Text(text = "App DataBase")
-        }
-        Row(
-            Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-            Arrangement.Center
-        ) {
-            LabelAndPlaceHolder(
-                Name = "Nome"
-            )
-        }
-        Row(
-            Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-            Arrangement.Center
-        ) {
-            LabelAndPlaceHolder(
-                Name = "Idade"
+            Text(
+                text = "App DataBase",
+            fontFamily = FontFamily.Serif,
+            fontWeight = FontWeight.Bold,
+            fontSize = 30.sp
             )
         }
         Row(
             Modifier
                 .padding(20.dp)
-                .fillMaxWidth(),
-            Arrangement.Center
         ) {
         }
         Row(
             Modifier
-                .padding(8.dp)
                 .fillMaxWidth(),
             Arrangement.Center
         ) {
-            Button(
-                onClick = {  /*TODO*/  }
+            TextField(
+                value = nome,
+                onValueChange ={ nome = it},
+                label= { Text("Nome:")}
+            )
+        }
+        Row(
+            Modifier
+                .padding(20.dp)
+        ) {
+        }
+        Row(
+            Modifier
+                .fillMaxWidth(),
+            Arrangement.Center
+        ) {
+            TextField(
+                value = telefone,
+                onValueChange ={ telefone = it},
+                label= { Text("Telefone:")}
+            )
+        }
+        Row(
+            Modifier
+                .padding(20.dp)
+        ) {
+        }
+        Row(
+            Modifier
+                .fillMaxWidth(),
+            Arrangement.Center
+        ) {
+            Button(onClick = {  /*TODO*/  }
 
             ) {
-                Text(text = "Cadastrar")
+                Text( "Cadastrar")
             }
+        }
+        Row(
+            Modifier
+                .padding(20.dp)
+        ) {
         }
 
     }
