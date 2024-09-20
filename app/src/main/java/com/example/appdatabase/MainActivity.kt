@@ -58,6 +58,22 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    private val db by lazy {
+        Room.databaseBuilder(
+            applicationContext,
+            PessoaDataBase::class.java,
+            "pessoa.db"
+        ).build()
+    }
+    private val viewModel by viewModels<PessoaViewModel>(
+        factoryProducer = {
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    return PessoaViewModel(Repository(db)) as T
+                }
+            }
+        }
+    )
 }
 
 @Composable

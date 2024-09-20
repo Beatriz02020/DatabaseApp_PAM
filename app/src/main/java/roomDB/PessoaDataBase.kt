@@ -1,0 +1,14 @@
+package roomDB
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(
+    entities = [Pessoa::class],
+    version = 1
+)
+abstract class PassoaDataBase: RoomDatabase(){
+    abstract fun PessoaDao(): PessoaDao
+}
+class PessoaDataBase {
+}
