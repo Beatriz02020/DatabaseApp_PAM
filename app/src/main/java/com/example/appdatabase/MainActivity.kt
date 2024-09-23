@@ -5,6 +5,7 @@ package com.example.appdatabase
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -39,8 +40,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
+import com.example.appdatabase.roomDB.PessoaDataBase
 import com.example.appdatabase.ui.theme.AppDatabaseTheme
-
+import com.example.appdatabase.viewModel.PessoaViewModel
+import com.example.appdatabase.viewModel.Repository
 
 
 class MainActivity : ComponentActivity() {

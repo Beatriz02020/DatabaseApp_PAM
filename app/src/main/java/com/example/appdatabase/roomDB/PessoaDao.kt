@@ -1,10 +1,10 @@
-package roomDB
+package com.example.appdatabase.roomDB
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
-import java.util.concurrent.Flow
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PessoaDao {
